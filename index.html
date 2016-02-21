@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Ball Drop Game : ">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Ball Drop Game</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/tigoe/BallDropGame">View on GitHub</a>
+
+          <h1 id="project_title">Ball Drop Game</h1>
+          <h2 id="project_tagline"></h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/tigoe/BallDropGame/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/tigoe/BallDropGame/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="ball-drop-game" class="anchor" href="#ball-drop-game" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Ball Drop Game</h1>
+
+<h3>
+<a id="a-game-to-demonstrate-tcp-sockets" class="anchor" href="#a-game-to-demonstrate-tcp-sockets" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>A game to demonstrate TCP sockets</h3>
+
+<p>This is a multiplayer game in which players collaborate to keep a ball from hitting the ground. Each player has a paddle, and can bound the ball off her paddle. When the ball bounces off your paddle, you get a point. Only the first bounce counts, though; subsequent bounces don't get you points. But if the ball bounces off another player's paddle then back to yours, you score again. You can keep scoring forever by bouncing the ball back and forth.</p>
+
+<p>The game is a networked application. Players log in by making a TCP socket connection to the IP address of the computer on which the game is running. For example, if the game is running on a computer with the IP address 192.168.0.2, then you'd make a connection to 192.168.0.2 port 8080, and you'd be connected.</p>
+
+<p>The simplest connection you can make to the game is via a command line interface, using telnet, like so:</p>
+
+<pre><code>$ telnet 192.168.0.2 8080
+</code></pre>
+
+<p>The game itself, BallDropServer, is written in <a href="http://www.processing.org">Processing</a>, so you'll need to download the <a href="https://processing.org/download/">Processing IDE</a> in order to run it.</p>
+
+<h2>
+<a id="clients" class="anchor" href="#clients" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Clients</h2>
+
+<p>The game clients can be written in any programming environment, and for any hardware you wish, as long as your environment can connect to a network and make a TCP socket connection. I've written clients for a few platforms below:</p>
+
+<ul>
+<li>Processing</li>
+<li>
+<a href="https://www.arduino.cc/en/Main/ArduinoBoardUno">Arduino Uno</a> using <a href="https://www.arduino.cc/en/Main/ArduinoWiFiShield101">WiFi101 shield</a>
+</li>
+<li>
+<a href="https://www.arduino.cc/en/Main/ArduinoBoardUno">Arduino Uno</a> using <a href="https://www.arduino.cc/en/Main/ArduinoEthernetShield">Ethernet shield</a>
+</li>
+<li>
+<a href="https://www.arduino.cc/en/Main/ArduinoBoardYun">Arduino Yún</a> using the <a href="https://www.arduino.cc/en/Reference/YunBridgeLibrary">Bridge library</a>
+</li>
+<li>ESP2866/ATTiny84, programmed with Arduino</li>
+</ul>
+
+<h2>
+<a id="communication-protocol" class="anchor" href="#communication-protocol" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Communication Protocol</h2>
+
+<p>When a client connects to the server, the server will send back a greeting and the instructions for controlling a paddle, as follows:</p>
+
+<pre><code>hi
+l = left, r = right, u = up, d = down
+x = exit
+1 point for each time the ball hits a new paddle
+(minimum 2 players)
+</code></pre>
+
+<p>The client can then send the following commands:</p>
+
+<ul>
+<li>l - move paddle left</li>
+<li>r - move right</li>
+<li>u - move up</li>
+<li>d - move down</li>
+<li>i - toggle paddle label between name or IP address</li>
+<li>n=XXXXX - set name (n= and n are the terminators. Everything between is the name</li>
+<li>x - exit</li>
+</ul>
+
+<h2>
+<a id="game-play" class="anchor" href="#game-play" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Game Play</h2>
+
+<p>Here's a <a href="video.mov">video of the game</a> in action.</p>
+
+<p>The game starts when the first new player logs in. Balls will drop from the top of the screen, and remain in play until they reach the bottom of the screen. To score the most points, bounce the ball off as many paddles as you can.</p>
+
+<p>The goal is to get the highest collective score.</p>
+
+<p>The game ends when five balls have dropped. When the game is over, the group's scores will be displayed.</p>
+
+<p>The game in its current version does not send the player any information about the ball or the state of the other players. In order to play the game, you have to be physically present to view the screen of the computer on which the game is running.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Ball Drop Game maintained by <a href="https://github.com/tigoe">tigoe</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
