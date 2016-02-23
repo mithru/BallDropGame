@@ -42,7 +42,7 @@
 <p>Here's a video of the game in action:</p>
 
 <iframe src="https://player.vimeo.com/video/156162582" width="500" height="387" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-<p><a href="https://vimeo.com/156162582">video</a> </p>
+<p></p>
 
 <p>The game is a networked application. Players log in by making a TCP socket connection to the IP address of the computer on which the game is running. For example, if the game is running on a computer with the IP address 192.168.0.2, then you'd make a connection to 192.168.0.2 port 8080, and you'd be connected.</p>
 
@@ -59,17 +59,23 @@
 <p>The game clients can be written in any programming environment, and for any hardware you wish, as long as your environment can connect to a network and make a TCP socket connection. I've written clients for a few platforms below:</p>
 
 <ul>
-<li>Processing</li>
+<li>Processing (<a href="https://github.com/tigoe/BallDropGame/tree/master/BallDropClient">example</a>)</li>
 <li>
-<a href="https://www.arduino.cc/en/Main/ArduinoBoardUno">Arduino Uno</a> using <a href="https://www.arduino.cc/en/Main/ArduinoWiFiShield101">WiFi101 shield</a>
+<a href="https://www.arduino.cc/en/Main/ArduinoBoardUno">Arduino Uno</a> using <a href="https://www.arduino.cc/en/Main/ArduinoWiFiShield101">WiFi101 shield (<a href="https://github.com/tigoe/BallDropGame/tree/master/BallDropWifi101JoystickClient">example</a>)</a>
 </li>
 <li>
-<a href="https://www.arduino.cc/en/Main/ArduinoBoardUno">Arduino Uno</a> using <a href="https://www.arduino.cc/en/Main/ArduinoEthernetShield">Ethernet shield</a>
+Arduino MKR1000 using theWiFi101 library. (<a href="https://github.com/tigoe/BallDropGame/tree/master/BallDropMKR1000JoystickClient">example</a>) The WiFi101 shield and the MKR1000 use the same WiFi module, so the code for both is compatible. </a>
+</li>
+<li>A simple serial-to-telnet example using the WiFi101 library to test the communication
+(<a href="https://github.com/tigoe/BallDropGame/tree/master/WiFi101TelnetClient">example</a>)
 </li>
 <li>
-<a href="https://www.arduino.cc/en/Main/ArduinoBoardYun">Arduino Yún</a> using the <a href="https://www.arduino.cc/en/Reference/YunBridgeLibrary">Bridge library</a>
+<a href="https://www.arduino.cc/en/Main/ArduinoBoardUno">Arduino Uno</a> using <a href="https://www.arduino.cc/en/Main/ArduinoEthernetShield">Ethernet shield</a> (<a href="https://github.com/tigoe/BallDropGame/tree/master/BallDropEthernetJoystickClient">example</a>)
 </li>
-<li>ESP2866/ATTiny84, programmed with Arduino</li>
+<li>
+<a href="https://www.arduino.cc/en/Main/ArduinoBoardYun">Arduino Yún</a> using the <a href="https://www.arduino.cc/en/Reference/YunBridgeLibrary">Bridge library</a> (<a href="https://github.com/tigoe/BallDropGame/tree/master/BridgeJoystickClient">example</a>)
+</li>
+<li>ESP2866/ATTiny84, programmed with Arduino (<a href="https://github.com/tigoe/BallDropGame/tree/master/ESP-to-ATTiny-TelnetClient">example</a>)</li>
 </ul>
 
 <h2>
