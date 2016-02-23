@@ -112,6 +112,37 @@ x = exit
 <p>The game ends when five balls have dropped. When the game is over, the group's scores will be displayed.</p>
 
 <p>The game in its current version does not send the player any information about the ball or the state of the other players. In order to play the game, you have to be physically present to view the screen of the computer on which the game is running.</p>
+
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting Started with New Boards/New Libraries</h2>
+
+<p>All of the microcontroller examples for this game as of Feb 2016 can be programmed using the Arduino IDE. If you're using a third-party board like the ESP8266 modules, you'll need to install the board using the Boards Manager in the IDE. You'll probably also need to install a library using the Library Manager as well. This section explains how to do that, for IDE version 1.6.7</p>. To start with, <a href="https://www.arduino.cc/en/Main/Software">download the Arduino IDE version 1.6.7</a>.
+
+<h3>The Boards Manager</h3>
+
+<p>To install new board definitions, for example the ESP8266, click on the Tools menu, and choose Board... --> Boards Manager. Use the search bar to search for your board. If it's there, install it, then close the Boards Manager, and you should see your board show up in the Boards menu when you click on it next.</p>
+
+<p>If your board is not listed in the boards manager, you'll need to add the repository for it to the Preferences. Click on the Arduino menu, choose Preferences, and look for the field caled Additional Boards Manager URLs. Click the button to the right of it and add your board's repository URL to the list. Here are a couple of URLs you might want:</p>
+
+<ul>
+  <li>ESP8266 boards: http://arduino.esp8266.com/stable/package_esp8266com_index.json</li>
+  <li>Adafruit boards (no examples here yet): https://adafruit.github.io/arduino-board-index/package_adafruit_index.json</li>
+
+<p>Once you've added your URL, click OK to exit the Preferences menu and restart the IDE. Your board should show up in the Boards menu now.</p>
+
+<h3>The Library Manager</h3>
+
+<p>The Arduino WiFi101 shield and the MKR1000 both use the same WiFi module, so you can use the same library, WiFI101, to program both of them. The ESP8266 has its own WiFi library, but the API is similar. You can find installed libraries under the Sketch menu, Include Libraries option. YOu can find examples for them in the File Menu, Examples option.</p>
+
+<p>To install new libraries, for example the WiFi101 library or the ESP8266 libraries, click on the Sketch menu, and choose Include Library... --> Manage Libraries. Use the search bar to search for your library. If it's there, install it, then close the Library Manager, and you should see your Library show up in the Sketch --> Include Library menu and the File --> Examples menu when you click on either of them next.</p>
+
+<p>If your library is not listed in the library manager, you can add it as a folder or .zip file using the Sketch --> Include library option as well. Just click Add .ZIP Library and follow the directions from there.</p>
+
+Once you've got your board installed and the libraries it needs, you're ready to use the examples in this repository.
+
+
+
+
+
       </section>
     </div>
 
